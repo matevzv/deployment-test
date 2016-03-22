@@ -2,9 +2,6 @@
 - hosts: edisons
   user: root
   tasks:
-  - name: cleanup
-    file: path=~/deploy state=absent
-
   - name: download git project
     git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
 
