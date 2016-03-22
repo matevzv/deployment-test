@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+  - name: cleanup
+    command: rm -rf ~/deploy
+
+  - name: download git project
+    git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
+
+  - name: Execute test script
+    command: python ~/deploy/deployment-test/test.py
+    register: hello
+
+  - debug: msg="{{ hello.stdout }}"
+
+  - debug: msg="{{ hello.stderr }}"
