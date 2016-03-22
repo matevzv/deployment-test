@@ -7,8 +7,11 @@
   - name: download git project
     git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
 
-  - name: Execute test script
-    command: python ~/deploy/deployment-test/test.py
+  - name: build docker file
+    command: docker build -t deploymentsample ~/deploy/deployment-test
+
+  - name: run docker image
+    command: docker run -i -t deploymentsample
     register: hello
 
   - debug: msg="{{ hello.stdout }}"
