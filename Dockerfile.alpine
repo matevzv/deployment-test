@@ -1,10 +1,10 @@
-FROM mateu/debian:wheezy-i386
+FROM multiarch/alpine:x86-latest-stable
 
 # File Author / Maintainer
 MAINTAINER Matevz Vucnik
 
-RUN apt-get update
-RUN apt-get install -y python
+RUN apk update && apk upgrade
+RUN apk add python
 
 ADD deploymentsample.py /root/hello/deploymentsample.py
 ADD test.py /root/hello/test.py
