@@ -1,5 +1,5 @@
 ---
-- hosts: edisons
+- hosts: all
   remote_user: matevz
   tasks:
   - name: download git project
