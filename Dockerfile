@@ -1,4 +1,4 @@
-FROM mateu/debian:wheezy-i386
+FROM armv7/armhf-ubuntu:xenial
 
 # File Author / Maintainer
 MAINTAINER Matevz Vucnik
