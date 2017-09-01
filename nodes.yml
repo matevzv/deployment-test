@@ -6,7 +6,9 @@
     git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
 
   - name: build docker file
-    command: docker build -t node -f ~/deploy/deployment-test/Dockerfile.nodes .
+    command: docker build -t node -f Dockerfile.nodes .
+    args:
+      chdir: ~/deploy/deployment-test
 
   - name: run docker image
     command: docker run node
