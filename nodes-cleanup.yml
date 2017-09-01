@@ -1,0 +1,11 @@
+---
+- hosts: sna-lgtc
+  remote_user: videk
+  tasks:
+  - name: cleanup docker containers
+    command: docker kill $(docker ps -q)
+    register: hello
+
+  - debug: msg="{{ hello.stdout }}"
+
+  - debug: msg="{{ hello.stderr }}"
