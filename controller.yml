@@ -6,7 +6,7 @@
     git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
 
   - name: build docker file
-    command: cd ~/deploy/deployment-test/Dockerfile.controller && docker build -t controller .
+    command: cd ~/deploy/deployment-test && docker build -t controller -f Dockerfile.controller .
 
   - name: run docker image
     command: docker run controller
