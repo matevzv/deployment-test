@@ -1,0 +1,10 @@
+FROM ubuntu:xenial
+
+# File Author / Maintainer
+MAINTAINER Matevz Vucnik
+
+RUN apt-get update
+RUN apt-get install -y curl
+
+# Run app
+CMD curl --silent --data "test=experiment" http://178.172.46.24:8000

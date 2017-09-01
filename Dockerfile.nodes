@@ -1,0 +1,12 @@
+FROM armv7/armhf-ubuntu:xenial
+
+# File Author / Maintainer
+MAINTAINER Matevz Vucnik
+
+RUN apt-get update
+RUN apt-get install -y python
+
+ADD test-srv.py /root/hello/test-srv.py
+
+# Run app
+CMD python /root/hello/test-srv.py

@@ -1,0 +1,17 @@
+---
+- hosts: sna-lgtc
+  remote_user: videk
+  tasks:
+  - name: download git project
+    git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
+
+  - name: build docker file
+    command: docker build -t node -f Dockerfile.nodes ~/deploy/deployment-test
+
+  - name: run docker image
+    command: docker run node
+    register: hello
+
+  - debug: msg="{{ hello.stdout }}"
+
+  - debug: msg="{{ hello.stderr }}"
