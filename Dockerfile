@@ -1,4 +1,4 @@
-FROM armv7/armhf-ubuntu:xenial
+FROM ubuntu:xenial
 
 # File Author / Maintainer
 MAINTAINER Matevz Vucnik
