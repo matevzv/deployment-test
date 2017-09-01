@@ -3,10 +3,10 @@
   remote_user: matevz
   tasks:
   - name: download git project
-    git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
+    git: repo=https://github.com/matevzv/deployment-test.git dest=/home/matevz/deploy/deployment-test
 
   - name: build docker file
-    command: docker build -t controller -f ~/deploy/deployment-test/Dockerfile.controller .
+    command: docker build -t controller -f /home/matevz/deploy/deployment-test/Dockerfile.controller .
 
   - name: run docker image
     command: docker run controller
