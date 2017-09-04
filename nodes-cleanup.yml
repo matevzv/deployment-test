@@ -1,5 +1,5 @@
 ---
-- hosts: sna-lgtc
+- hosts: 178.172.46.24
   remote_user: videk
   tasks:
   - name: cleanup docker containers
