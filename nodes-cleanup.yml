@@ -3,9 +3,12 @@
   remote_user: videk
   tasks:
   - name: cleanup docker containers
-    command: bash -c "docker kill hello_srv"
     register: hello
-
-  - debug: msg="{{ hello.stdout }}"
-
-  - debug: msg="{{ hello.stderr }}"
+    command: "{{ item }}"
+    with_items:
+      - docker kill hello_srv
+      - docker rm hello_srv
+  - debug: msg="{{ hello.results[0].stdout_lines }}"
+  - debug: msg="{{ hello.results[1].stdout_lines }}"
+  - debug: msg="{{ hello.results[0].stderr_lines }}"
+  - debug: msg="{{ hello.results[1].stderr_lines }}"
