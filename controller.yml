@@ -1,6 +1,6 @@
 ---
-- hosts: localhost
-  remote_user: matevz
+- hosts: 172.17.0.1
+  remote_user: administrator
   tasks:
   - name: download git project
     git: repo=https://github.com/matevzv/deployment-test.git dest=~/deploy/deployment-test
