@@ -8,6 +8,7 @@
     with_items:
       - docker kill hello_srv
       - docker rm hello_srv
+
   - debug: msg="{{ hello.results[0].stdout_lines }}"
   - debug: msg="{{ hello.results[1].stdout_lines }}"
   - debug: msg="{{ hello.results[0].stderr_lines }}"
