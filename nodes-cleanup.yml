@@ -3,7 +3,7 @@
   remote_user: videk
   tasks:
   - name: cleanup docker containers
-    command: bash -c "docker kill $(docker ps -q)"
+    command: bash -c "docker kill hello_srv"
     register: hello
 
   - debug: msg="{{ hello.stdout }}"

@@ -11,7 +11,7 @@
       chdir: ~/deploy/deployment-test
 
   - name: run docker image
-    command: docker run -d -p 8000:8000 node
+    command: docker run --name hello_srv -d -p 8000:8000 node
     register: hello
 
   - debug: msg="{{ hello.stdout }}"
