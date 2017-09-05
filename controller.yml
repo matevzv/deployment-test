@@ -25,12 +25,7 @@
       - docker rm controller_node
 
   - name: fetch test.log to out
-    register: hello
     fetch:
       src: ~/deploy/deployment-test/test.log
       dest: ../out/test.log
       flat: yes
-
-  - debug: msg="{{ hello.stdout }}"
-
-  - debug: msg="{{ hello.stderr }}"
