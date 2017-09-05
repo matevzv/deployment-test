@@ -19,17 +19,17 @@
       chdir: ~/deploy/deployment-test
 
   - name: cleanup docker container controller_node
-    register: hello
     command: "{{ item }}"
     with_items:
       - docker stop controller_node
       - docker rm controller_node
 
   - name: fetch test.log to out
+    register: hello
     fetch:
       src: ~/deploy/deployment-test/test.log
       dest: ../out/test.log
 
-  - debug: msg="{{ hello.stdout }}"
+  - debug: msg="{{ hello.stdout_lines }}"
 
-  - debug: msg="{{ hello.stderr }}"
+  - debug: msg="{{ hello.stderr_lines }}"
