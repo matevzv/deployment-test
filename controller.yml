@@ -29,7 +29,8 @@
     fetch:
       src: ~/deploy/deployment-test/test.log
       dest: ../out/test.log
+      flat: yes
 
-  - debug: msg="{{ hello.stdout_lines }}"
+  - debug: msg="{{ hello.stdout }}"
 
-  - debug: msg="{{ hello.stderr_lines }}"
+  - debug: msg="{{ hello.stderr }}"
