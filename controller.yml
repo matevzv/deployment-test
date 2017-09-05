@@ -11,7 +11,7 @@
       chdir: ~/deploy/deployment-test
 
   - name: run docker image
-    command: docker run --name controller_node -d controller
+    command: docker run --name controller_node controller
 
   - name: copy file from container
     command: docker cp controller_node:/test.log .
