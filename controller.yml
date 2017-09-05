@@ -11,8 +11,24 @@
       chdir: ~/deploy/deployment-test
 
   - name: run docker image
-    command: docker run controller
+    command: docker run --name controller_node -d controller
+
+  - name: copy file from container
+    command: docker cp controller_node:/test.log .
+    args:
+      chdir: ~/deploy/deployment-test
+
+  - name: cleanup docker container controller_node
     register: hello
+    command: "{{ item }}"
+    with_items:
+      - docker kill controller_node
+      - docker rm controller_node
+
+  - name: fetch test.log to out
+    fetch:
+      src: ~/deploy/deployment-test/test.log
+      dest: ../out/test.log
 
   - debug: msg="{{ hello.stdout }}"
 
