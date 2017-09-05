@@ -22,6 +22,7 @@
     register: hello
     command: "{{ item }}"
     with_items:
+      - docker stop controller_node
       - docker rm controller_node
 
   - name: fetch test.log to out
