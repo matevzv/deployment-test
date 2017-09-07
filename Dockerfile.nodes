@@ -6,9 +6,8 @@ MAINTAINER Matevz Vucnik
 RUN apt-get update
 RUN apt-get install -y python
 
+ADD deploymentsample.py /root/hello/deploymentsample.py
 ADD test-srv.py /root/hello/test-srv.py
 
-WORKDIR /root/hello
-
 # Run app
-CMD python test-srv.py
+CMD python /root/hello/test-srv.py
