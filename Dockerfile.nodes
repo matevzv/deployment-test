@@ -8,5 +8,7 @@ RUN apt-get install -y python
 
 ADD test-srv.py /root/hello/test-srv.py
 
+WORKDIR /root/hello
+
 # Run app
-CMD python /root/hello/test-srv.py
+CMD python test-srv.py
