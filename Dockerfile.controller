@@ -7,4 +7,4 @@ RUN apt-get update
 RUN apt-get install -y curl
 
 # Run app
-CMD curl --silent --data "test=experiment" http://178.172.46.234:8000 > /test.log
+CMD curl --silent --data "test=experiment" http://178.172.46.25:8000 > /test.log
